@@ -7,6 +7,7 @@ import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCi
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi'
 import LinkChart from './LinkChart'
+import Loader from './Loader'
 
 
 const { Title, Text } = Typography
@@ -24,7 +25,7 @@ const CryptoDetails = () => {
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
-  if(isFetching) return 'Loading...'
+  if(isFetching) return <Loader />
 
   const stats = [
     { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
