@@ -20,7 +20,7 @@ const News = ({ simplified }) => {
   if(!cryptoNews?.value) return 'Loading...'
   return (
     <Row gutter={[ 24, 24 ]}>
-      {/* {!simplified && (
+      {!simplified && (
         <Col span={24}>
           <Select 
             showSearch
@@ -34,7 +34,7 @@ const News = ({ simplified }) => {
             {data?.data?.coins.map((coin) => <Option value={coin.name}>{coin.name}</Option>)}
           </Select>
         </Col>
-      )} */}
+      )} 
         {cryptoNews.value.map((news, i) => (
            <Col xs={24} sm={12} lg={8} key={i}>
               <Card hoverable className='news-card'>
