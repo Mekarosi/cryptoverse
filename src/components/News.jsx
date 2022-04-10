@@ -7,7 +7,7 @@ import { useGetCryptosQuery } from '../services/cryptoApi'
 import Loader from './Loader'
 
 const { Text, Title } = Typography
-const { Option } = Select
+
 
 const demoImage = 'https://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg'
 
@@ -23,17 +23,17 @@ const News = ({ simplified }) => {
     <Row gutter={[ 24, 24 ]}>
       {!simplified && (
         <Col span={24}>
-          <Select 
+          <select 
             showSearch
             className='select-news'
             placeholder='Select a Crypto'
             optionFilterProp='children'
-            onChange={(value) => setNewsCategory(value)}
+            onChange={(e) => setNewsCategory(e.target.value)}
             filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
           >
-            <Option value='Cryptocurrency'>Cryptocurrency</Option>
-            {data?.data?.coins.map((coin) => <Option value={coin.name} key={coin.name}>{coin.name}</Option>)}
-          </Select>
+            <option value='Cryptocurrency'>Cryptocurrency</option>
+            {data?.data?.coins.map((coin) => <option value={coin.name} key={coin.name}>{coin.name}</option>)}
+          </select>
         </Col>
       )} 
         {cryptoNews.value.map((news, i) => (

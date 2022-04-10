@@ -59,6 +59,8 @@ const CryptoDetails = () => {
       placeholder="Select Timeperiod" 
       onChange={(e) => setTimeperiod(e.target.value)}
     >
+      <option>Select Timeperiod</option>
+
       {time.map((date) => <option value={date} key={date}>{date}</option>)}
     </select>
     <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails?.price)} coinName={cryptoDetails?.name} />
